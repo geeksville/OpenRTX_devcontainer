@@ -1,0 +1,5 @@
+{
+    "docker.environment": {
+        "DOCKER_CONTEXT": "default"
+    }
+}
