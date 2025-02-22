@@ -16,6 +16,9 @@ RUN apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
+# Let the user access ttyUSB devices
+RUN usermod -a -G dialout $USERNAME
+
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
 

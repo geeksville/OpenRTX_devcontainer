@@ -8,13 +8,13 @@
 	"remoteUser": "user",
 	"runArgs": [
 		"--privileged"
-	],	
+	],
 	"mounts": [
-    	"source=/dev/bus/usb,target=/dev/bus/usb,type=bind"
-    ],
-
-	"containerEnv": { "ZEPHYR_BASE": "${containerWorkspaceFolder}/zephyr" },
-
+		"source=/dev/bus/usb,target=/dev/bus/usb,type=bind"
+	],
+	"containerEnv": {
+		"ZEPHYR_BASE": "${containerWorkspaceFolder}/zephyr"
+	},
 	"customizations": {
 		"vscode": {
 			"settings": {
@@ -24,11 +24,13 @@
 					}
 				},
 				"terminal.integrated.defaultProfile.linux": "bash"
-			}
-		},
-		"extensions": [
-			"ms-vscode.cpptools",
-			"ms-vscode.cmake-tools"
-		]
+			},
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cmake-tools",
+				"ms-vscode.cpptools-extension-pack",
+				"-ms-azuretools.vscode-docker"
+			]
+		}
 	}
 }
