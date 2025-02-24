@@ -25,11 +25,14 @@
 				},
 				"terminal.integrated.defaultProfile.linux": "bash"
 			},
+			"remote.extensionKind": {
+				"ms-azuretools.vscode-docker": ["ui"]
+				},
 			"extensions": [
 				"ms-vscode.cpptools",
 				"ms-vscode.cmake-tools",
 				"ms-vscode.cpptools-extension-pack",
-				"-ms-azuretools.vscode-docker"
+				"ms-azuretools.vscode-docker"
 			]
 		}
 	}

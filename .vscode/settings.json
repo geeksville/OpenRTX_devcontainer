@@ -1,5 +1,6 @@
 {
     "docker.environment": {
         "DOCKER_CONTEXT": "default"
-    }
+    },
+    "cmake.sourceDirectory": "/workspaces/openrtx-build/OpenRTX"
 }

@@ -1,4 +1,6 @@
-FROM zephyrprojectrtos/zephyr-build:main
+FROM zephyrprojectrtos/zephyr-build:v0.27.4
+# v0.27.4 v026.18 0.26.9, v0.25.1 also no good (fails wrt PATH)
+# v0.24.12 failed because tools were too old
 
 ## Setup a user with sudo support
 USER root

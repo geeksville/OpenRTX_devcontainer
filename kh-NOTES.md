@@ -84,3 +84,7 @@ delete all local contexts: docker rm -v $(docker ps -qa)
 
 no need to source zephyr-env.sh?
 "west init -l <localdir>"
+
+get openocd from https://github.com/espressif/openocd-esp32
+https://github.com/espressif/openocd-esp32/releases
+then debug with 'west debug --openocd `which openocd-esp32openocd`'
