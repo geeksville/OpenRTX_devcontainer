@@ -6,12 +6,10 @@ FROM zephyrprojectrtos/zephyr-build:v0.27.4
 USER root
 
 RUN apt update
-RUN apt install -y gdb less git pkg-config build-essential libcodec2-dev
+RUN apt install -y less git pkg-config build-essential libcodec2-dev
 
 # We use 'user' as the name to match what the zhephyr-build image already created
 ARG USERNAME=user
-ARG USER_UID=1001
-ARG USER_GID=$USER_UID
 
 # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
 RUN apt-get install -y sudo \

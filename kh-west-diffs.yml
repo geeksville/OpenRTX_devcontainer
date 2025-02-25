@@ -1,0 +1,28 @@
+manifest:
+  self:
+    path: OpenRTX
+
+  defaults:
+    remote: zephyr
+
+  remotes:
+    - name: zephyr
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    - name: zephyr
+      revision: 8469084dfae85f854555f0607f2c838dad097235
+      path: zephyr
+      west-commands: scripts/west-commands.yml
+      import: submanifests
+
+    - name: mcuboot
+      revision: f74b77cf7808919837c0ed14c2ead3918c546349
+      path: bootloader/mcuboot
+
+    - name: hal_espressif
+      revision: 07ff57e8d197765652b7819b297415d859ed7815
+      path: modules/hal/espressif
+      west-commands: west/west-commands.yml
+      groups:
+        - hal
