@@ -6,6 +6,21 @@ build environment).
 
 Currently this is just a proof of concept...
 
+## Using this proof of concept
+
+Ok thanks to the ptrs from @edgetriggered I've got my build working (yay).  In the process I made a "devcontainer" which might be useful for ya'll in the future.  Devcontainers are great because:
+
+* they make the build environment totally portable/repeatable.  So you can tell new devs 'here's a reference build environment that is guaranteed to work for you - including all the tools needed to build, flash, debug etc... And you don't need to worry about what the host OS or environment the dev has.
+* devcontainers work easily from inside of github actions to automatically do CI on pull-requests, generate release binaries etc...
+* works nicely inside of most IDEs
+* very low performance cost (especially if the host OS is linux, in which case the cost is almost zero)
+* can even work 'on the web' from inside of a cloud hosted "codespaces" included in the free github tier.  So if you have curious proto devs you can just say: go to this repo and click "start codespace" (though see below)
+
+I based this container (for now) on the edgetriggered PR for ttpwr and the official latest zephyr docker container.  For now it is in a separate little repo with an extra test "build-all.sh" script included in the path - which fetches a proper OpenRTX tree and uses that for development.  Eventually you (we?) could add it to the OpenRTX project itself and then if users open the project in a supported IDE they would get autoprompted "would you like to open this in a devcontainer environment?" 
+
+If you'd like to try it yourself go here in your browser: https://github.com/geeksville/OpenRTX_devcontainer
+Then click on Code ... / Codespaces ... / Start codespace.
+
 Misc private notes @geeksville is keeping for himself follow...
 
 ## Build setup

@@ -1,6 +1,8 @@
-FROM zephyrprojectrtos/zephyr-build:v0.27.4
-# v0.27.4 v026.18 0.26.9, v0.25.1 also no good (fails wrt PATH)
-# v0.24.12 failed because tools were too old
+
+# zephyr-build is quite large and adds some nice GUI addons etc... but for now we use the
+# ci version instead so we can stay below the 15GB limit for github codespaces.
+# FROM zephyrprojectrtos/zephyr-build:v0.27.4
+FROM zephyrprojectrtos/ci:v0.27.4
 
 # We use 'user' as the name to match what the zhephyr-build image already created
 ARG USERNAME=user
