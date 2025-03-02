@@ -36,8 +36,6 @@ If you'd like to try this proof-of-concept on your own machine:
 
 (Usually you don't want this but...) This can be an easy way to "try building this project from scratch, myself" without having to set-up a local build environment.  It runs an instance of VSCode "in the cloud."
 
-Alas: Github codespaces in the free tier (what I'm limited to currently) have a max filesystem size of 15GB (which the ubuntu based Zephyr container exceeds).  If this ever became a useful feature for someone, they could change the zephyr images to be based on something smaller (alpine?) but that would be IMO a PITA.
-
 If you'd like to try it yourself go here in your browser: https://github.com/geeksville/OpenRTX_devcontainer
 Then click on Code... / Codespaces... / Create a codespace on main...
 
