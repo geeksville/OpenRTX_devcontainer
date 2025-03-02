@@ -5,6 +5,9 @@
 			"WORKSPACE": "${containerWorkspaceFolder}"
 		}
 	},
+	"hostRequirements": {
+		"storage": "32gb"
+	},
 	"remoteUser": "user",
 	"runArgs": [
 		"--privileged"
