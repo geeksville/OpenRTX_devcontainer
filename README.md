@@ -19,7 +19,7 @@ Ok thanks to the ptrs from @edgetriggered I've got my build working (yay).  In t
 
 I based this container (for now) on the edgetriggered PR for ttpwr and the official latest zephyr docker container.  For now it is in a separate little repo with an extra test "build-all.sh" script included in the path - which fetches a proper OpenRTX tree and uses that for development.  Eventually you (we?) could add it to the OpenRTX project itself and then if users open the project in a supported IDE they would get autoprompted "would you like to open this in a devcontainer environment?"
 
-### Running this devcontainer locallu
+### Running this devcontainer locally
 
 If you'd like to try this proof-of-concept on your own machine:
 
@@ -41,9 +41,19 @@ Alas: Github codespaces in the free tier (what I'm limited to currently) have a 
 If you'd like to try it yourself go here in your browser: https://github.com/geeksville/OpenRTX_devcontainer
 Then click on Code... / Codespaces... / Create a codespace on main...
 
+![Creating codespace](doc/codespace.png?raw=true "Creating codespace")
+
 Note: the first time you do this it will be **VERY slow** (on the github free tier it can be many minutes) to open.  This is especially true if your github region hasn't cached all of the various dependencies.
 To see progress: can click on "Building codespace..." in the bottom right. 
 For future sessions if you'd like to keep using the same web based codespace it will be quite fast to reopen.
+
+After the codespace opens, click in the bottom right of the vscode window and type "build-all.sh" you should see something like this:
+
+![codespace](doc/codespaceinner.png?raw=true "Starting build")
+
+And then...
+
+![codespace2](doc/codespace2.png?raw=true "Build finished")
 
 ## Build setup
 
