@@ -1,3 +1,13 @@
+# A devcontainer for building OpenRTX
+
+NOTE: Eventually this might be useful to refactor and merge into the openrtx tree (because it 
+guarantees repeatable reference builds for any user/dev and removes all variablity from the host
+build environment).  
+
+Currently this is just a proof of concept...
+
+Misc private notes @geeksville is keeping for himself follow...
+
 ## Build setup
 
 * per https://openrtx.org/#/compiling?id=building-openrtx-from-sources
@@ -31,6 +41,13 @@ export ESP_IDF_PATH="${HOME}/packages/esp-idf"
 ```
 mkdir openrtx-build && cd $_
 west init -m https://github.com/geeksville/OpenRTX
+west update
+source zephyr/zephyr-env.sh # You need to execute this for every new shell
+
+or if cloning from edgetriggered
+
+mkdir openrtx-build && cd $_
+west init -m https://github.com/edgetriggered/openrtx --mr ttwrplus
 west update
 source zephyr/zephyr-env.sh # You need to execute this for every new shell
 ```

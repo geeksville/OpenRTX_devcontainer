@@ -16,6 +16,11 @@ RUN apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
+# Get the radio_tool and install it (using the last built release from the git repo)
+RUN cd /tmp
+    && wget https://g^Chub.com/v0l/radio_tool/releases/download/v0.2.2/radio_tool-0.2.2-Linux.deb
+    && sudo dpkg -i radio_tool-0.2.2-Linux.deb
+
 # Let the user access ttyUSB devices
 RUN usermod -a -G dialout $USERNAME
 
