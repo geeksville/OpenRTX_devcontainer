@@ -6,7 +6,7 @@
 		}
 	},
 	"hostRequirements": {
-		"storage": "32gb"
+		"storage": "64gb"
 	},
 	"remoteUser": "user",
 	"runArgs": [
