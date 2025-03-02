@@ -1,6 +1,7 @@
 set -e
 
 # a crude script to just build all of the ttpwr binaries
+cd /workspaces/openrtx-build
 
 if [ ! -d ".west" ]; then
   echo "Fetching reference OpenRTX repo..."
