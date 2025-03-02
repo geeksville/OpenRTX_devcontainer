@@ -12,7 +12,7 @@ ARG WORKSPACE=workspace
 USER root
 
 RUN apt update
-RUN apt install -y less git pkg-config build-essential libcodec2-dev
+RUN apt install -y less git pkg-config build-essential libsdl2-dev libcodec2-dev libreadline-dev
 
 # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
 RUN apt-get install -y sudo \
@@ -23,6 +23,11 @@ RUN apt-get install -y sudo \
 RUN cd /tmp \
     && wget https://github.com/v0l/radio_tool/releases/download/v0.2.2/radio_tool-0.2.2-Linux.deb \
     && sudo dpkg -i radio_tool-0.2.2-Linux.deb
+
+# This tool is apparently needed for the non ttpwr radios...
+RUN cd /tmp \
+    && wget https://miosix.org/toolchain/MiosixToolchainInstaller.run \
+    && sh MiosixToolchainInstaller.run
 
 # Let the user access ttyUSB devices
 RUN usermod -a -G dialout $USERNAME
