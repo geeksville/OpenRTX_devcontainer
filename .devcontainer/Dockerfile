@@ -2,14 +2,15 @@ FROM zephyrprojectrtos/zephyr-build:v0.27.4
 # v0.27.4 v026.18 0.26.9, v0.25.1 also no good (fails wrt PATH)
 # v0.24.12 failed because tools were too old
 
+# We use 'user' as the name to match what the zhephyr-build image already created
+ARG USERNAME=user
+ARG WORKSPACE=workspace
+
 ## Setup a user with sudo support
 USER root
 
 RUN apt update
 RUN apt install -y less git pkg-config build-essential libcodec2-dev
-
-# We use 'user' as the name to match what the zhephyr-build image already created
-ARG USERNAME=user
 
 # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
 RUN apt-get install -y sudo \
@@ -17,8 +18,8 @@ RUN apt-get install -y sudo \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
 # Get the radio_tool and install it (using the last built release from the git repo)
-RUN cd /tmp
-    && wget https://g^Chub.com/v0l/radio_tool/releases/download/v0.2.2/radio_tool-0.2.2-Linux.deb
+RUN cd /tmp \
+    && wget https://github.com/v0l/radio_tool/releases/download/v0.2.2/radio_tool-0.2.2-Linux.deb \
     && sudo dpkg -i radio_tool-0.2.2-Linux.deb
 
 # Let the user access ttyUSB devices
@@ -26,6 +27,9 @@ RUN usermod -a -G dialout $USERNAME
 
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
+
+# Add the workspace bin to the path (must be done after setting user)
+ENV PATH="${WORKSPACE}/bin:$PATH"
 
 # Add .local/bin to the user's path - because we will install meson and ninja there
 ENV PATH="/home/$USERNAME/.local/bin:$PATH"
