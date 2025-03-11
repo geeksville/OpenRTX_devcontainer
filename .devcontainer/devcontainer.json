@@ -1,6 +1,7 @@
 {
-	"dockerFile": "Dockerfile",
+	"name": "openrtx-devcontainer",
 	"build": {
+		"dockerfile": "Dockerfile",
 		"args": {
 			"WORKSPACE": "${containerWorkspaceFolder}"
 		}
