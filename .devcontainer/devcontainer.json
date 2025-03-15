@@ -19,6 +19,10 @@
 	"containerEnv": {
 		"ZEPHYR_BASE": "${containerWorkspaceFolder}/zephyr"
 	},
+	"postCreateCommand": [
+		// doesn't work yet - an attempt to prevent git complaining about our workspace directory
+		// "git config --global --add safe.directory ${containerWorkspaceFolder}"
+	],
 	"customizations": {
 		"vscode": {
 			"settings": {
