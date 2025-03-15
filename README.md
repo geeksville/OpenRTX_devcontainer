@@ -62,6 +62,10 @@ Misc private notes @geeksville is keeping for himself follow...
 * https://docs.zephyrproject.org/latest/develop/getting_started/installation_linux.html
 * latest cmake: https://apt.kitware.com/ 
 
+## TODO
+
+* add a .dockerignore to keep the built contaienr small
+
 ## To fix build missing dependency
 
 apt install python3-pykwalify

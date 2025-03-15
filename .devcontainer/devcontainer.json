@@ -9,9 +9,9 @@
 	"hostRequirements": {
 		"storage": "64gb"
 	},
-	"remoteUser": "user",
 	"runArgs": [
-		"--privileged"
+		"--privileged",
+		"--userns=keep-id"
 	],
 	"mounts": [
 		"source=/dev/bus/usb,target=/dev/bus/usb,type=bind"
