@@ -11,16 +11,24 @@
 	},
 	"runArgs": [
 		"--privileged",
-		"--userns=keep-id"
+		"--user=1000:1000",
+		"--userns=keep-id:uid=1000,gid=1000"
 	],
 	"mounts": [
-		"source=/dev/bus/usb,target=/dev/bus/usb,type=bind"
+		"source=/dev/bus/usb,target=/dev/bus/usb,type=bind",
+		"source=/dev,target=/host/dev,type=bind"
 	],
 	"containerEnv": {
-		"ZEPHYR_BASE": "${containerWorkspaceFolder}/zephyr"
+		"ZEPHYR_BASE": "${containerWorkspaceFolder}/zephyr",
+
+		// Use this path to support hotplugging devices
+		// "ESPTOOL_PORT": "/host/dev/ttyACM0"
+
+		// But for bootloader update the esptool complains if the portname doesn't start with /dev, so for now I just use this
+		"ESPTOOL_PORT": "/dev/ttyACM0"
 	},
 	"postCreateCommand": [
-		// doesn't work yet - an attempt to prevent git complaining about our workspace directory
+		// No longer needed now that ownership of mountpoint fixed via --user
 		// "git config --global --add safe.directory ${containerWorkspaceFolder}"
 	],
 	"customizations": {

@@ -156,3 +156,11 @@ no need to source zephyr-env.sh?
 get openocd from https://github.com/espressif/openocd-esp32
 https://github.com/espressif/openocd-esp32/releases
 then debug with 'west debug --openocd `which openocd-esp32openocd`'
+
+## configuring USB serial access in host
+
+Put the following in /etc/udev/rules.d/42-something.rules
+```
+# make serial devices world writable, also create a stable vendorid based path in ttyUSB-by-id
+SUBSYSTEM=="tty", ATTRS{idVendor}=="*", ATTRS{idProduct}=="*", SYMLINK+="ttyUSB-by-id/$attr{idVendor}:$attr{idProduct}", MODE="0666"
+```

@@ -29,7 +29,10 @@ RUN cd /tmp \
     && wget https://miosix.org/toolchain/MiosixToolchainInstaller.run \
     && sh MiosixToolchainInstaller.run
 
-# Let the user access ttyUSB devices
+# We expose the full hostos /dev tree (to allow podman to see hotplugged USB devices such as /host/dev/ttyACM0)
+RUN mkdir -p /host/dev
+
+# Let the user access ttyUSB devices (can't work on podman, but will work for docker)
 RUN usermod -a -G dialout $USERNAME
 
 # [Optional] Set the default user. Omit if you want to keep the default as root.
