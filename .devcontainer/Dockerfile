@@ -47,4 +47,4 @@ ENV PATH="/home/$USERNAME/.local/bin:$PATH"
 # The pip version included in the zephyr-build image might be old
 RUN python3 -m pip install --upgrade pip
 
-RUN pip3 install --user meson ninja
+RUN pip3 install --user meson
